@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    transition: .5s linear;
+    transition-property: color, opacity, width, height, background-color, font-size, z-index;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    width: .5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(206, 46, 46);
+    border-radius: .5rem;
+}
+
+a {
+    color: #eb3b3b;
+}
