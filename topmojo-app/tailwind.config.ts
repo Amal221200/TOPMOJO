@@ -1,6 +1,8 @@
 import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography';
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -8,13 +10,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      textColor: {
+        ['dark-primary']: '#eb3b3b'
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 }
 export default config

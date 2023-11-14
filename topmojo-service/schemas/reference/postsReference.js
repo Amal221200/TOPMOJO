@@ -1,7 +1,7 @@
 export default {
-    name: 'post',
+    name: 'posts',
     type: 'array',
-    title: 'Post',
+    title: 'Posts',
     of: [
         {
             type: 'reference',

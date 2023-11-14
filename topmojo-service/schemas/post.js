@@ -18,6 +18,14 @@ export default {
             title: 'Description',
         },
         {
+            name: 'slug',
+            type: 'slug',
+            title: 'Slug',
+            options: {
+                source: 'title'
+            }
+        },
+        {
             ...authorReference
         },
         {
@@ -35,10 +43,14 @@ export default {
                 },
                 {
                     type: "image",
-                },
-                // {
-                //     type: "Link",
-                // }
+                    fields: [
+                        {
+                            name: 'alt',
+                            type: 'string',
+                            title: 'Alternative Text'
+                        }
+                    ]
+                }
             ]
         },
         {
