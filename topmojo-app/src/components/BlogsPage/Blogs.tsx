@@ -4,14 +4,14 @@ import { getFilteredPosts } from "@/lib/functions";
 import { useEffect } from "react";
 
 const Blogs = () => {
-    async function name() {
-        const data = await getFilteredPosts('All')
-        console.log(data);
-    }
+    // async function name() {
+    //     const data = await getFilteredPosts('All')
+    //     console.log(data);
+    // }
 
-    useEffect(() => {
-        name()
-    }, [])
+    // useEffect(() => {
+    //     name()
+    // }, [])
 
     return (
         <>
