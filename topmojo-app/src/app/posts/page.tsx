@@ -1,10 +1,10 @@
-import BlogsSection from "@/components/BlogsPage/BlogsSection";
+import Posts from "@/components/PostsPage/Posts";
 
 const BlogsPage = () => {
     
     return (
         <main className="h-[100dvh] py-3">
-            <BlogsSection />
+            <Posts />
         </main>
     );
 }
