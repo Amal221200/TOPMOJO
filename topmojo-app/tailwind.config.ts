@@ -11,7 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       textColor: {
-        ['dark-primary']: '#eb3b3b'
+        ['dark-primary']: '#eb3b3b',
+        ['link']: '#eb3b3b'
       },
     },
   },

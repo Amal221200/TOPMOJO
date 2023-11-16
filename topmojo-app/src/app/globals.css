@@ -23,7 +23,3 @@ html::-webkit-scrollbar-thumb {
     background: rgb(206, 46, 46);
     border-radius: .5rem;
 }
-
-a {
-    color: #eb3b3b;
-}

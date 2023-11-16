@@ -7,7 +7,20 @@ export interface Post {
     categories: { name: string }[]
     _createdAt: string
 }
-export interface PostByCatgories {
+
+export interface HomePost {
+    _id: string,
+    title: string,
+    description: string
+    slug: { current: string },
+    _createdAt: string,
+}
+
+export interface Category {
+    _id: string,
+    name: string
+}
+export interface PostByCatgory {
     _id: string,
     name: string,
     _createdAt: string,
