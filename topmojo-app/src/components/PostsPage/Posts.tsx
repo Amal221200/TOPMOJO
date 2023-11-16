@@ -1,15 +1,20 @@
 "use client";
 import PostsHeader from "@/components/PostsPage/PostsHeader";
+import PostsSection from "@/components/PostsPage/PostsSection";
 import { useState } from "react";
-import PostsSection from "./PostsSection";
 
 const Posts = () => {
-    const [category, setCategory] = useState<string>('All')
-    
+
+    const [category, setCategory] = useState('All')
+    const handleAction = (formData: FormData) => {
+        setCategory(formData.get('category') as string)
+    }
+
+
     return (
-        <div className="max-w-7xl px-2 h-full md:px-4 border border-white mx-auto">
-            <PostsHeader category={category} setCategory={setCategory} />
-            <PostsSection />
+        <div className="max-w-7xl px-2 h-full md:px-4 mx-auto">
+            <PostsHeader setCategory={handleAction} />
+            <PostsSection category={category} key={category} />
         </div>
     );
 }

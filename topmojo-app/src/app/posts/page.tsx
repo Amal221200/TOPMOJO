@@ -1,6 +1,6 @@
 import Posts from "@/components/PostsPage/Posts";
 
-const BlogsPage = () => {
+const PostsPage = () => {
     
     return (
         <main className="h-[100dvh] py-3">
@@ -9,4 +9,4 @@ const BlogsPage = () => {
     );
 }
 
-export default BlogsPage;
+export default PostsPage;

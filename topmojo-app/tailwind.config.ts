@@ -14,8 +14,13 @@ const config: Config = {
         ['dark-primary']: '#eb3b3b',
         ['link']: '#eb3b3b'
       },
+
+      screens : {
+        xs: '450px'
+      }
     },
   },
+  
   plugins: [typography],
 }
 export default config
