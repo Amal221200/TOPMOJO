@@ -12,6 +12,18 @@ export default {
         },
         {
             ...postsReference
+        },
+        {
+            name: 'image',
+            type: 'image',
+            title:'Image',
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternate Text'
+                }
+            ]
         }
     ]
 }
