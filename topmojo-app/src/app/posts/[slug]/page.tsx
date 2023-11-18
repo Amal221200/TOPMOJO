@@ -12,7 +12,7 @@ const BlogPage = async ({ params: { slug } }: { params: { slug: string } }) => {
                 // console.log(value);
 
                 return (
-                    <Image src={urlFor(value)} alt="Image" height={800} width={800} loading="lazy" placeholder="blur" blurDataURL="/main-bg.jpg" className="mx-auto w-auto h-auto aspect-video" />
+                    <Image src={urlFor(value)} alt="Image" height={800} width={800} priority className="mx-auto w-auto h-auto aspect-video" />
                 )
             }
         }

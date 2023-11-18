@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
     transition: .5s linear;
     transition-property: color, opacity, width, height, background-color, font-size, z-index;
-}
+} */
 
 html {
     overflow-x: hidden;

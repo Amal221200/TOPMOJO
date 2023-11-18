@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className='dark' suppressHydrationWarning>
       <body className={`${inter.className} bg-zinc-50 dark:bg-zinc-900 text-gray-700 dark:text-gray-200`}>
         <Theme>
           <ProgressProvider>

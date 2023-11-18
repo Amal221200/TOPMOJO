@@ -14,6 +14,8 @@ export interface HomePost {
     description: string
     slug: { current: string },
     _createdAt: string,
+    image?: string,
+    categories: Array<{ name: string, slug: string }>
 }
 
 export interface Category {
@@ -24,11 +26,5 @@ export interface PostByCatgory {
     _id: string,
     name: string,
     _createdAt: string,
-    posts: {
-        _id: string,
-        title: string,
-        description: string,
-        slug: { current: string },
-        _createdAt: string
-    }[]
+    posts: HomePost[]
 }

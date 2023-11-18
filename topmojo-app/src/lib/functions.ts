@@ -1,3 +1,4 @@
+"use server"
 import { Category, Post, PostByCatgory } from "./interface";
 import { client } from "./sanity";
 

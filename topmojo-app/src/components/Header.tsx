@@ -12,7 +12,7 @@ const Header = () => {
             </div>
             <div className='flex items-center gap-4 pr-3'>
                 <nav className=''>
-                    <Link href="/posts" className="dark:text-white text-black"
+                    <Link href={`/posts?categorySlug=All`} className="dark:text-white text-black"
                      prefetch>Blogs</Link>
                 </nav>
                 <ThemeButton />
