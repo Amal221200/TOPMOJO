@@ -1,13 +1,13 @@
-import { Hero, HomeBlogs } from "@/components";
-import { getPostsByCatgories } from "@/lib/functions";
+import { Hero, HomeBlogs, Categories } from "@/components";
+import { revalidatePath } from "next/cache";
 
 export default async function Home() {
-  const postsByCatgories = await getPostsByCatgories()
-
+// revalidatePath("/")
   return (
     <>
       <Hero />
-      <HomeBlogs postByCategories={postsByCatgories} />
+      <Categories />
+      <HomeBlogs />
     </>
   )
 }

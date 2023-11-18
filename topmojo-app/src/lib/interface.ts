@@ -1,14 +1,14 @@
-export interface Post {
+export interface PostType {
     _id: string,
     title: string,
     description: string,
-    slug: { current: string },
+    slug: string,
     content: any,
     categories: { name: string }[]
     _createdAt: string
 }
 
-export interface HomePost {
+export interface HomePostType {
     _id: string,
     title: string,
     description: string
@@ -18,17 +18,19 @@ export interface HomePost {
     categories: Array<{ name: string, slug: string }>
 }
 
-export interface Category {
+export interface CategoryType {
     _id: string,
-    name: string
+    name: string,
+    slug: string,
+    image: string
 }
-export interface PostByCatgory {
+export interface PostByCatgoryType {
     _id: string,
     name: string,
     _createdAt: string,
-    posts: HomePost[]
+    posts: HomePostType[]
 }
-export interface ServerProps {
+export interface ServerPropsType {
     params: { [key: string]: string | undefined }
     searchParams: { [key: string]: string | string[] | undefined }
 }
