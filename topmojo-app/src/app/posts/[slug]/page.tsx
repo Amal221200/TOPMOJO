@@ -6,7 +6,6 @@ import { ServerProps } from "@/lib/interface";
 import { Metadata } from "next";
 
 const getTitle: (postSlug: string) => string = (postSlug: string) => {
-    // "use server";
     return postSlug.split('-').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');
 }
 export async function generateMetadata({ params }: ServerProps): Promise<Metadata> {

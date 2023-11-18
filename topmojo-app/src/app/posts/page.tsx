@@ -4,11 +4,11 @@ import Link from "next/link";
 import Tags from "./_components/Tags";
 import { Metadata, } from "next";
 import { ServerProps } from "@/lib/interface";
-// import { revalidatePath } from "next/cache";
 
 const getCategory: (categorySlug: string) => string = (categorySlug: string) => {
     return categorySlug.split('-').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');
 }
+
 export async function generateMetadata({ searchParams }: ServerProps): Promise<Metadata> {
     const { categorySlug } = searchParams;
     return {
