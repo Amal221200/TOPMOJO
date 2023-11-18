@@ -28,3 +28,7 @@ export interface PostByCatgory {
     _createdAt: string,
     posts: HomePost[]
 }
+export interface ServerProps {
+    params: { [key: string]: string | undefined }
+    searchParams: { [key: string]: string | string[] | undefined }
+}

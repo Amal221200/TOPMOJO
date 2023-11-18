@@ -13,6 +13,7 @@ export async function getPostsByCatgories(): Promise<PostByCatgory[]> {
     const data = await client.fetch(query);
     return data;
 }
+
 export async function getFilteredPosts(query: string): Promise<PostByCatgory[]> {
     const data = await client.fetch(query);
     return data;
