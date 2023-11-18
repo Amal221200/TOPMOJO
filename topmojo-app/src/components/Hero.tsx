@@ -1,6 +1,7 @@
 import { client } from "@/lib/sanity";
 
 async function getInfo(): Promise<{ name: string, description: string }> {
+    "use server"
     const query = `*[_type == "info"]{name, description}[0]`;
     const data = await client.fetch(query);
     return data

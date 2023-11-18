@@ -3,13 +3,17 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Tags = ({ categories }: { categories: { name: string, slug: string }[] }) => {
+interface TagsProps {
+    categories: { name: string, slug: string }[]
+}
+const Tags: React.FC<TagsProps> = ({ categories }) => {
     const [mounted, setMounted] = useState(false)
     useEffect(() => {
         setMounted(true)
     }, [])
 
-    if (!mounted) return null
+    if (!mounted) return null;
+    
     return (
         <div className="flex gap-1">
             {

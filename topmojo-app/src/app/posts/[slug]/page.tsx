@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: ServerPropsType): Promise<Met
     }
 }
 
-const BlogPage = async ({ params: { slug } }: { params: { slug: string } }) => {
-
+const BlogPage: React.FC<ServerPropsType> = async ({ params }) => {
+    const { slug: postSlug } = params;
     const proseClasses = 'prose dark:prose-invert prose-h1:text-6xl prose-h1:text-center prose-h3:text-2xl';
 
-    const post = await getPost(slug);
+    const post = await getPost(postSlug as string);
 
     const PortableTextContent: Partial<PortableTextReactComponents> = {
         types: {
@@ -33,7 +33,7 @@ const BlogPage = async ({ params: { slug } }: { params: { slug: string } }) => {
             }
         }
     }
-    
+
     return (
         <main className="">
             <div className={`${proseClasses} max-w-7xl px-4 py-4 mx-auto`}>

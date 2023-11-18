@@ -16,7 +16,7 @@ export async function generateMetadata({ searchParams }: ServerPropsType): Promi
     }
 }
 
-const PostsPage = async ({ searchParams }: ServerPropsType) => {
+const PostsPage: React.FC<ServerPropsType> = async ({ searchParams }) => {
     const { categorySlug } = searchParams;
     const posts = await fetchPostsByCategories(categorySlug as string);
     return (
