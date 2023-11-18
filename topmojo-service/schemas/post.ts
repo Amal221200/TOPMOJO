@@ -1,5 +1,5 @@
-import authorReference from "./reference/authorReference";
-import categoriesReference from "./reference/categoriesReference";
+import authorReference from "./references/authorReference";
+import categoriesReference from "./references/categoriesReference";
 
 export default {
     name: 'post',

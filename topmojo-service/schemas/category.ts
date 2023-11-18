@@ -1,4 +1,4 @@
-import postsReference from "./reference/postsReference";
+import postsReference from "./references/postsReference";
 
 export default {
     name: 'category',

@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'topmojo-service',
 
-  projectId: 'emx81n9x',
+  projectId: 'h7wlvl60',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
