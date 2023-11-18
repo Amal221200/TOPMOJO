@@ -16,7 +16,7 @@ export default {
         {
             name: 'image',
             type: 'image',
-            title:'Image',
+            title: 'Image',
             fields: [
                 {
                     name: 'alt',
@@ -24,6 +24,14 @@ export default {
                     title: 'Alternate Text'
                 }
             ]
+        },
+        {
+            name: 'slug',
+            type: 'slug',
+            title: 'Slug',
+            options: {
+                source: 'name'
+            }
         }
     ]
 }
