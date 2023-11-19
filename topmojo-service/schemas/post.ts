@@ -55,6 +55,16 @@ export default {
         },
         {
             ...categoriesReference
+        },
+        {
+            name: 'keywords',
+            title: 'Keywords',
+            type: 'array',
+            of: [
+                {
+                    type: 'string'
+                }
+            ]
         }
     ]
 }

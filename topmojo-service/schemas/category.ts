@@ -32,6 +32,16 @@ export default {
             options: {
                 source: 'name'
             }
+        },
+        {
+            name: 'keywords',
+            title: 'Keywords',
+            type: 'array',
+            of: [
+                {
+                    type: 'string'
+                }
+            ]
         }
     ]
 }
