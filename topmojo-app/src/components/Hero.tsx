@@ -6,6 +6,7 @@ async function getInfo(): Promise<{ name: string, description: string }> {
     const data = await client.fetch(query);
     return data
 }
+
 const Hero = async () => {
     const info = await getInfo();
     

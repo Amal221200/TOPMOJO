@@ -8,14 +8,15 @@ const Category: React.FC<{ category: CategoryType }> = ({ category }) => {
     return (
         <Link href={`/posts?categorySlug=${category.slug}`} prefetch>
             <div className="w-full p-1 sm:p-3 flex justify-start items-center gap-3 transition-colors bg-zinc-300 hover:bg-zinc-400 hover:dark:bg-zinc-600 dark:bg-zinc-700 rounded-2xl">
-                <div className="w-12 h-12">
+                <div className="w-9 h-9 sm:w-12 sm:h-12">
                     <Image src={category.image} alt={category.slug} width={150} height={150} className="rounded-full object-cover aspect-square h-full w-full" priority />
                 </div>
-                <h6 className="font-semibold text-sm">{category.name}</h6>
+                <h6 className="font-semibold text-[12px] sm:text-sm">{category.name}</h6>
             </div>
         </Link>
     )
 }
+
 const Categories = async () => {
     const categories = await getCatgories()
     return (
