@@ -1,4 +1,4 @@
-import { getPosts } from "@/lib/functions";
+import { getPosts } from "@/lib/actions";
 import { PostType } from "@/lib/interface";
 import { formatTimeAgo } from "@/lib/relativeTime";
 import Link from "next/link";

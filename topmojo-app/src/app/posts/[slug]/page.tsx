@@ -1,9 +1,10 @@
 import { urlFor } from "@/lib/sanityImageUrl";
 import { Metadata } from "next";
-import { getPost } from "@/lib/functions";
+import { getPost } from "@/lib/actions";
 import { ServerPropsType } from "@/lib/interface";
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import Image from "next/image";
+import { revalidatePath } from "next/cache";
 
 const getTitle: (postSlug: string) => string = (postSlug: string) => {
     return postSlug.split('-').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');
@@ -12,16 +13,18 @@ const getTitle: (postSlug: string) => string = (postSlug: string) => {
 export async function generateMetadata({ params }: ServerPropsType): Promise<Metadata> {
     const { slug: postSlug } = params;
     const post = await getPost(postSlug as string);
+
     return {
         title: `Posts | ${getTitle(post.title)}`,
-        description: post.description
+        description: post.description,
+        keywords: post.keywords
     }
 }
 
 const BlogPage: React.FC<ServerPropsType> = async ({ params }) => {
     const { slug: postSlug } = params;
     const proseClasses = 'prose dark:prose-invert prose-h1:text-6xl prose-h1:text-center prose-h3:text-2xl';
-
+revalidatePath('/posts/top-10-antagonists')
     const post = await getPost(postSlug as string);
 
     const PortableTextContent: Partial<PortableTextReactComponents> = {

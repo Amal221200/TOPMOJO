@@ -15,11 +15,11 @@ export async function fetchPostsByCategories(categorySlug: string): Promise<Home
     if (categorySlug === 'All') {
         query = `*[_type == "post"]{_id,title,description,"image": image.asset->url,slug,"categories":categories[]->{name, "slug":slug.current},_createdAt} | order(_createdAt asc)`
     } else {
-        query = `*[_type == "category" && slug.current == "${categorySlug}"]{name,"posts": posts[]->{_id,title,description,"image": image.asset->url,slug,"categories":categories[]->{name, "slug":slug.current},_createdAt}} | order(_createdAt asc)`
+        query = `*[_type=="post" && references(categories, *[_type == 'category' && slug.current == "${categorySlug}"][0]._id)]{_id,title,description,"image": image.asset->url,slug,"categories":categories[]->{name, "slug":slug.current},_createdAt} | order(_createdAt asc)`
     }
 
     const data = await client.fetch(query);
-    return categorySlug === 'All' ? data : data[0].posts
+    return data
 }
 
 export async function getCatgories(): Promise<CategoryType[]> {
@@ -29,8 +29,15 @@ export async function getCatgories(): Promise<CategoryType[]> {
     return data;
 }
 
+export async function getCategory(slug: string): Promise<CategoryType> {
+    const query = `*[_type == "category" && slug.current == "${slug}"][0]{_id, name, "slug": slug.current, "image": image.asset->url, keywords}`;
+
+    const data = await client.fetch(query);
+    return data;
+}
+
 export async function getPost(slug: string): Promise<PostType> {
-    const query = `*[_type == 'post' && slug.current == "${slug}"][0]{_id, _createdAt, title, description, slug, content,"categories": categories[]->{_id, name}}`;
+    const query = `*[_type == 'post' && slug.current == "${slug}"][0]{_id, _createdAt, title, description, slug, content,"categories": categories[]->{_id, name},keywords}`;
 
     const data = await client.fetch(query);
     return data;

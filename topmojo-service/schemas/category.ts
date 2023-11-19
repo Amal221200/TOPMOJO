@@ -1,5 +1,4 @@
-import postsReference from "./references/postsReference";
-
+import { Rule } from "sanity";
 export default {
     name: 'category',
     type: 'document',
@@ -8,10 +7,8 @@ export default {
         {
             name: 'name',
             type: 'string',
-            title: 'Name'
-        },
-        {
-            ...postsReference
+            title: 'Name',
+            validation: (Rule: Rule)=> Rule.required(),
         },
         {
             name: 'image',
@@ -29,6 +26,7 @@ export default {
             name: 'slug',
             type: 'slug',
             title: 'Slug',
+            validation: (Rule: Rule)=> Rule.required(),
             options: {
                 source: 'name'
             }
@@ -37,6 +35,7 @@ export default {
             name: 'keywords',
             title: 'Keywords',
             type: 'array',
+            validation: (Rule: Rule)=> Rule.required(),
             of: [
                 {
                     type: 'string'

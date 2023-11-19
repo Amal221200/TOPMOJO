@@ -1,8 +1,7 @@
-import { getCatgories } from "@/lib/functions";
+import { getCatgories } from "@/lib/actions";
 import { CategoryType } from "@/lib/interface";
 import Image from "next/image";
 import Link from "next/link";
-
 
 const Category: React.FC<{ category: CategoryType }> = ({ category }) => {
     return (
