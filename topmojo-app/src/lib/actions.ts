@@ -9,7 +9,6 @@ export async function getPosts(): Promise<PostType[]> {
     return data;
 }
 
-
 export async function fetchPostsByCategories(categorySlug: string): Promise<HomePostType[]> {
     let query = '';
     if (categorySlug === 'All') {

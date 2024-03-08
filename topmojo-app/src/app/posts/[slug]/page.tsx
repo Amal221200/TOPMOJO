@@ -1,10 +1,12 @@
+import Image from "next/image";
 import { urlFor } from "@/lib/sanityImageUrl";
 import { Metadata } from "next";
-import { getPost } from "@/lib/actions";
+import { getPost, getPosts } from "@/lib/actions";
 import { ServerPropsType } from "@/lib/interface";
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
-import Image from "next/image";
 import { revalidatePath } from "next/cache";
+
+export const dynamicParams = false
 
 const getTitle: (postSlug: string) => string = (postSlug: string) => {
     return postSlug.split('-').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');
@@ -24,17 +26,17 @@ export async function generateMetadata({ params }: ServerPropsType): Promise<Met
 const BlogPage: React.FC<ServerPropsType> = async ({ params }) => {
     const { slug: postSlug } = params;
     const proseClasses = 'prose dark:prose-invert prose-h1:text-6xl prose-h1:text-center prose-h3:text-2xl';
-revalidatePath('/posts/top-10-antagonists')
+
     const post = await getPost(postSlug as string);
 
     const PortableTextContent: Partial<PortableTextReactComponents> = {
-        types: {
-            image: ({ value }) => {
-                return (
-                    <Image src={urlFor(value)} alt="Image" height={800} width={800} priority className="mx-auto w-auto h-auto aspect-video" />
-                )
-            }
+    types: {
+        image: ({ value }) => {
+            return (
+                <Image src={urlFor(value)} alt="Image" height={800} width={800} priority className="mx-auto w-auto h-auto aspect-video" />
+            )
         }
+    }
     }
 
     return (
@@ -47,3 +49,9 @@ revalidatePath('/posts/top-10-antagonists')
 }
 
 export default BlogPage;
+
+export async function generateStaticParams() {
+    const posts = await getPosts();
+
+    return posts.map(post => ({ slug: post.slug }));
+}

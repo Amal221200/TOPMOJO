@@ -1,10 +1,13 @@
 'use client';
 import { Next13ProgressBar } from 'next13-progressbar';
+import { Suspense } from 'react';
 
 const ProgressProvider = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
-            <Next13ProgressBar height="2px" color="#eb3b3b" options={{ showSpinner: true }} showOnShallow />
+            <Suspense>
+                <Next13ProgressBar height="2px" color="#eb3b3b" options={{ showSpinner: true }} showOnShallow />
+            </Suspense>
             {children}
         </>
     );
