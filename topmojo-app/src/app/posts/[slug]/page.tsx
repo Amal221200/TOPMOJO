@@ -4,9 +4,10 @@ import { Metadata } from "next";
 import { getPost, getPosts } from "@/lib/actions";
 import { ServerPropsType } from "@/lib/interface";
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
-import { revalidatePath } from "next/cache";
 
-export const dynamicParams = false
+export const dynamicParams = false;
+
+export const revalidate = 20;
 
 const getTitle: (postSlug: string) => string = (postSlug: string) => {
     return postSlug.split('-').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');
@@ -30,13 +31,13 @@ const BlogPage: React.FC<ServerPropsType> = async ({ params }) => {
     const post = await getPost(postSlug as string);
 
     const PortableTextContent: Partial<PortableTextReactComponents> = {
-    types: {
-        image: ({ value }) => {
-            return (
-                <Image src={urlFor(value)} alt="Image" height={800} width={800} priority className="mx-auto w-auto h-auto aspect-video" />
-            )
+        types: {
+            image: ({ value }) => {
+                return (
+                    <Image src={urlFor(value)} alt="Image" height={800} width={800} priority className="mx-auto w-auto h-auto aspect-video" />
+                )
+            }
         }
-    }
     }
 
     return (
