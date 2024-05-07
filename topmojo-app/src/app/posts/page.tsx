@@ -1,11 +1,9 @@
 import { ServerPropsType } from "@/lib/interface";
 import { Metadata } from "next";
-import Image from "next/image";
 import { fetchPostsByCategories, getCategory } from "@/lib/actions";
-import Link from "next/link";
-import { Tags } from "@/components";
 import Post from "@/components/PostsPage/Post";
 
+export const revalidate = 20;
 const categoryStringify: (categorySlug: string) => string = (categorySlug: string) => {
     return categorySlug.split('-').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');
 }

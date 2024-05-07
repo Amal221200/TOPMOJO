@@ -4,16 +4,10 @@ import { Metadata } from "next";
 import { getPost, getPosts } from "@/lib/actions";
 import { ServerPropsType } from "@/lib/interface";
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
+import { getTitle } from "@/lib/utils";
 
-// Dynamic Params
-export const dynamicParams = false;
-
-// Revalidaion
+// Revalidation
 export const revalidate = 20;
-
-const getTitle: (postSlug: string) => string = (postSlug: string) => {
-    return postSlug.split('-').map((word) => `${word[0].toUpperCase()}${word.slice(1)}`).join(' ');
-}
 
 // MetaData
 export async function generateMetadata({ params }: ServerPropsType): Promise<Metadata> {
